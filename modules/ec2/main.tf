@@ -30,7 +30,7 @@ resource "aws_autoscaling_group" "web_service" {
   availability_zones   = var.asg_availability_zones
   tag {
     key                 = "Name"
-    value               = "asg-instance"
+    value               = "web-instance-${var.environment}"
     propagate_at_launch = true
   }
 }
