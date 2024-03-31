@@ -58,3 +58,9 @@ variable "key_pair" {
     type        = string
   
 }
+
+variable "environment" {
+    description = "The environment to deploy the instances"
+    type        = string
+  
+}

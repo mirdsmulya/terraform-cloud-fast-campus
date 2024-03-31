@@ -12,4 +12,5 @@ module "web-server-prod" {
   elb_availability_zones = ["ap-southeast-1a", "ap-southeast-1b"]
   vpc_id                 = "vpc-00feacb6d220c5212"
   subnets                = [ "subnet-0bb70691292e64ea7", "subnet-07ce57e703be85c3b"  ]
+  environment = "production"
 }

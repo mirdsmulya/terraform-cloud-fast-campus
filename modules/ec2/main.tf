@@ -1,5 +1,5 @@
 resource "aws_launch_configuration" "example" {
-  name          = var.cluster_name
+  name          = "${var.cluster_name}-${var.environment}"
   image_id      = var.ami # AMI untuk Amazon Linux 2 di ap-southeast-1, ganti sesuai kebutuhan
   instance_type = var.instance_type # Tipe instance
 
@@ -36,7 +36,7 @@ resource "aws_autoscaling_group" "web_service" {
 }
 
 resource "aws_security_group" "web_service" {
-  name = "${var.cluster_name}-alb"
+  name = "${var.cluster_name}-${var.environment}-alb"
 
   ingress {
     from_port   = 80
@@ -54,7 +54,7 @@ resource "aws_security_group" "web_service" {
 }
 
 resource "aws_lb" "web_service" {
-  name               = "${var.cluster_name}-load-balancer"
+  name               = "${var.cluster_name}-${var.environment}-load-balancer"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.web_service.id]
@@ -63,7 +63,7 @@ resource "aws_lb" "web_service" {
 }
 
 resource "aws_lb_target_group" "web_service" {
-  name     = "${var.cluster_name}-target-group"
+  name     = "${var.cluster_name}-${var.environment}-target-group"
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id
