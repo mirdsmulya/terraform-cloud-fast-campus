@@ -6,7 +6,7 @@ module "web-server" {
   tag_name               = "web-server"
   instance_min_count     = 2
   instance_max_count     = 3
-  cluster_name           = "web-server-gold"
+  cluster_name           = "web-s-gold"
   key_pair               = "terraform-key-pair"
   asg_availability_zones = ["ap-southeast-1a", "ap-southeast-1b"]
   elb_availability_zones = ["ap-southeast-1a", "ap-southeast-1b"]
