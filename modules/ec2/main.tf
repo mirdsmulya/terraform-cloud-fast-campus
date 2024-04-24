@@ -16,7 +16,7 @@ resource "aws_launch_configuration" "example" {
                 EOF
 
   lifecycle {
-    create_before_destroy = true
+    create_before_destroy = false
   }
 }
 
