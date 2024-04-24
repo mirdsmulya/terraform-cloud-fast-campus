@@ -2,7 +2,7 @@ module "web-server-prod" {
   source = "../../modules/ec2"
   
   ami                    = "ami-015f72d56355ebc27"
-  instance_type          = "t2.large"
+  instance_type          = "t2.medium"
   tag_name               = "web-server"
   instance_min_count     = 3
   instance_max_count     = 5
